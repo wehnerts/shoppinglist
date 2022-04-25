@@ -5,12 +5,12 @@ import useShoppingItems from "./hooks/useShoppingItems";
 import ShoppingItemsOverview from "./components/ShoppingItemsOverview";
 
 function App() {
-    const {shoppingItems} = useShoppingItems()
+    const {shoppingItems, addShoppingItems} = useShoppingItems()
     console.log(shoppingItems)
 
   return (
     <div className="App">
-        <ShoppingItemsOverview shoppingItems={shoppingItems}/>
+        <ShoppingItemsOverview shoppingItems={shoppingItems} addShoppingItems={addShoppingItems}/>
     </div>
   );
 }

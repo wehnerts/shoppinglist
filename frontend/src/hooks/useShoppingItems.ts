@@ -22,4 +22,4 @@ export default function useShoppingItems(){
             .then(addedShoppingItem => setShoppingItems([...shoppingItems, addedShoppingItem]))
     }
 
-return {shoppingItems}}
+return {shoppingItems, addShoppingItems}}
