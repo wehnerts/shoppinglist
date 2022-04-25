@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {ShoppingItem} from "../model/ShoppingItem";
 import axios from "axios";
+import NewShoppingItem from "../components/NewShoppingItem";
 
 
 export default function useShoppingItems(){
@@ -15,5 +16,10 @@ export default function useShoppingItems(){
 
     },[])
 
+    const addShoppingItems = (newShoppingItem : ShoppingItem) => {
+        axios.post("/api/shoppingitem" , newShoppingItem)
+            .then(response => response.data)
+            .then(addedShoppingItem => setShoppingItems([...shoppingItems, addedShoppingItem]))
+    }
 
 return {shoppingItems}}
