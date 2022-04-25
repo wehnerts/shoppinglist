@@ -2,14 +2,14 @@ import React from 'react';
 import './App.css';
 import {ShoppingItem} from "./model/ShoppingItem";
 import useShoppingItems from "./hooks/useShoppingItems";
+import ShoppingItemsOverview from "./components/ShoppingItemsOverview";
 
 function App() {
     const {shoppingItems} = useShoppingItems()
+
   return (
     <div className="App">
-      <header className="App-header">
-
-      </header>
+        <ShoppingItemsOverview shoppingItems={shoppingItems}/>
     </div>
   );
 }
