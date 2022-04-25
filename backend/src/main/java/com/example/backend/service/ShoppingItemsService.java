@@ -11,13 +11,21 @@ import java.util.List;
 public class ShoppingItemsService {
 
     private final ShoppingItemsRepo shoppingItemsRepo;
+    private final IdService idService;
 
     @Autowired
-    public ShoppingItemsService(ShoppingItemsRepo shoppingItemsRepo) {
+    public ShoppingItemsService(ShoppingItemsRepo shoppingItemsRepo, IdService idService) {
         this.shoppingItemsRepo = shoppingItemsRepo;
+        this.idService = idService;
     }
 
     public List<ShoppingItem> getShoppingItems() {
         return shoppingItemsRepo.getShoppingItems();
+    }
+
+    public ShoppingItem addNewItem(ShoppingItem newItem) {
+        newItem.setId(idService.generateId());
+        shoppingItemsRepo.addNewItem(newItem);
+        return newItem;
     }
 }

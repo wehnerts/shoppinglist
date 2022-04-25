@@ -14,4 +14,8 @@ public class ShoppingItemsRepo {
     public List<ShoppingItem> getShoppingItems() {
         return shoppingItems;
     }
+
+    public void addNewItem(ShoppingItem newItem) {
+        shoppingItems.add(newItem);
+    }
 }
