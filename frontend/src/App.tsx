@@ -6,6 +6,7 @@ import ShoppingItemsOverview from "./components/ShoppingItemsOverview";
 
 function App() {
     const {shoppingItems} = useShoppingItems()
+    console.log(shoppingItems)
 
   return (
     <div className="App">

@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {ShoppingItem} from "../model/ShoppingItem";
+import axios from "axios";
 
 
 export default function useShoppingItems(){
@@ -7,14 +8,11 @@ export default function useShoppingItems(){
 
 
     useEffect(()=>{
-        setShoppingItems(
-            [
-                {id: "1", name: "Nudeln"},
-                {id: "2", name: "Pesto"},
-                {id: "3", name: "Parmesan"},
-                {id: "4", name: "Salat"}
-            ]
-        )
+
+            axios.get("/api/shoppingitem")
+                .then(response => setShoppingItems(response.data))
+                .catch(console.error)
+
     },[])
 
 
