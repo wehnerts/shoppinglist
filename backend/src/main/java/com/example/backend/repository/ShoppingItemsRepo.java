@@ -15,8 +15,9 @@ public class ShoppingItemsRepo {
         return shoppingItems;
     }
 
-    public void addNewItem(ShoppingItem newItem) {
+    public ShoppingItem addNewItem(ShoppingItem newItem) {
         shoppingItems.add(newItem);
+        return newItem;
     }
     public void deleteAll(){
         shoppingItems.clear();

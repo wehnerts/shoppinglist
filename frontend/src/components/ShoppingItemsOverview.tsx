@@ -4,7 +4,7 @@ import NewShoppingItem from "./NewShoppingItem";
 
 type ShoppingItemsOverviewProps = {
     shoppingItems: ShoppingItem []
-    addShoppingItems : (newShoppingItem : ShoppingItem) => void
+    addShoppingItems : (newShoppingItem : Omit<ShoppingItem, "id">) => void
 }
 
 export default function ShoppingItemsOverview({shoppingItems, addShoppingItems} : ShoppingItemsOverviewProps){

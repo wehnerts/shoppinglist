@@ -18,14 +18,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-
-
 class ShoppingItemControllerTest {
 
     @MockBean
-    IdService idService;
-
-    ShoppingItemsService shoppingItemsService = mock(ShoppingItemsService.class);
+    private IdService idService;
 
     @LocalServerPort
     private int port;
@@ -37,10 +33,9 @@ class ShoppingItemControllerTest {
     private ShoppingItemsRepo shoppingItemsRepo;
 
     @BeforeEach
-    public void cleanUpp(){
+    public void cleanUp(){
         shoppingItemsRepo.deleteAll();
     }
-
 
     @Test
     void getAllItems(){
@@ -61,15 +56,11 @@ class ShoppingItemControllerTest {
         //THEN
         List<ShoppingItem> expected = List.of(new ShoppingItem("1", "Mehl"));
         assertEquals(expected, actual);
-
     }
 
     @Test
     void addNewItem(){
-
-
         //GIVEN
-        //ShoppingItem itemToReturn = new ShoppingItem("10", "Mehl");
         when(idService.generateId()).thenReturn("10");
         ShoppingItem item1 = new ShoppingItem(null, "Mehl");
 
@@ -83,14 +74,9 @@ class ShoppingItemControllerTest {
                 .returnResult()
                 .getResponseBody();
 
-
         //THEN
+        verify(idService).generateId();
         ShoppingItem expected = new ShoppingItem("10", "Mehl");
         assertEquals(expected, actual);
-        verify(idService).generateId();
-
-
     }
-
-
 }

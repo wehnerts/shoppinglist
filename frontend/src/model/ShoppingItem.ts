@@ -1,4 +1,4 @@
 export type ShoppingItem = {
-    id? : string;
+    id : string;
     name : string;
 }

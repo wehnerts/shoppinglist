@@ -1,24 +1,19 @@
 import {useEffect, useState} from "react";
 import {ShoppingItem} from "../model/ShoppingItem";
-import axios from "axios";
-import NewShoppingItem from "../components/NewShoppingItem";
-
+import {getAllShoppingItem, postShoppingItem} from "../api-service";
 
 export default function useShoppingItems(){
-    const [shoppingItems , setShoppingItems ] = useState < ShoppingItem [] >([]);
-
+    const [shoppingItems, setShoppingItems] = useState<ShoppingItem[]>([]);
 
     useEffect(()=>{
-
-            axios.get("/api/shoppingitem")
-                .then(response => setShoppingItems(response.data))
+        getAllShoppingItem()
+                .then(allShoppingItems => setShoppingItems(allShoppingItems))
                 .catch(console.error)
 
     },[])
 
-    const addShoppingItems = (newShoppingItem : ShoppingItem) => {
-        axios.post("/api/shoppingitem" , newShoppingItem)
-            .then(response => response.data)
+    const addShoppingItems = (newShoppingItem : Omit<ShoppingItem, "id">) => {
+        postShoppingItem(newShoppingItem)
             .then(addedShoppingItem => setShoppingItems([...shoppingItems, addedShoppingItem]))
     }
 

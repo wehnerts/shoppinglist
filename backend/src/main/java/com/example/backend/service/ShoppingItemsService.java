@@ -25,7 +25,6 @@ public class ShoppingItemsService {
 
     public ShoppingItem addNewItem(ShoppingItem newItem) {
         newItem.setId(idService.generateId());
-        shoppingItemsRepo.addNewItem(newItem);
-        return newItem;
+        return shoppingItemsRepo.addNewItem(newItem);
     }
 }

@@ -1,7 +1,6 @@
 import {ShoppingItem} from "../model/ShoppingItem";
 import "./ShoppingItemCard.css";
 
-
 type ShoppingItemCardProps = {
     shoppingItem: ShoppingItem
 }
@@ -9,12 +8,10 @@ type ShoppingItemCardProps = {
 export default function ShoppingItemCard({shoppingItem}:ShoppingItemCardProps){
     return(
         <div className={"shopping-item-card"}>
-            <div className={"bulletpoint"}></div>
-            <h4>
-
+            <div className={"bulletpoint"}/>
+            <p>
                 {shoppingItem.name}
-            </h4>
-
+            </p>
         </div>
     )
 }

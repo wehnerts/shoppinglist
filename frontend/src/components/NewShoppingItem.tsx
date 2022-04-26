@@ -3,7 +3,7 @@ import {ShoppingItem} from "../model/ShoppingItem";
 import "./NewShoppingItem.css";
 
 type NewShoppingItemProps ={
-    addShoppingItems : ( newShoppingItem : ShoppingItem) => void
+    addShoppingItems : ( newShoppingItem : Omit<ShoppingItem, "id">) => void
 }
 
 export default function NewShoppingItem ({ addShoppingItems }: NewShoppingItemProps){
@@ -15,7 +15,7 @@ export default function NewShoppingItem ({ addShoppingItems }: NewShoppingItemPr
             alert("Please enter an item!")
             return
         }
-        const newShoppingItem : ShoppingItem = {
+        const newShoppingItem : Omit<ShoppingItem, "id"> = {
             name : name
         }
         addShoppingItems(newShoppingItem);
