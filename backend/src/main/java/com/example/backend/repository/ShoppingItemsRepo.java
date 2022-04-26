@@ -18,4 +18,8 @@ public class ShoppingItemsRepo {
     public void addNewItem(ShoppingItem newItem) {
         shoppingItems.add(newItem);
     }
+    public void deleteAll(){
+        shoppingItems.clear();
+    }
+
 }
