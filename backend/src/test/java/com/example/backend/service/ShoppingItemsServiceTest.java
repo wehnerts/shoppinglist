@@ -38,14 +38,16 @@ class ShoppingItemsServiceTest {
     void addNewItem() {
         //GIVEN
         when(idService.generateId()).thenReturn("10");
+        when(shoppingItemsRepo.addNewItem(new ShoppingItem("10", "Mehl"))).thenReturn(new ShoppingItem("10", "Mehl"));
 
         //WHEN
         ShoppingItem newItem = new ShoppingItem(null, "Mehl");
         ShoppingItem actual = shoppingItemsService.addNewItem(newItem);
 
         //THEN
-        verify(idService).generateId();
         ShoppingItem expected = new ShoppingItem("10", "Mehl");
+        verify(idService).generateId();
+        verify(shoppingItemsRepo).addNewItem(expected);
         assertEquals(expected, actual);
     }
 }
