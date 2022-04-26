@@ -1,5 +1,6 @@
 import {FormEvent, useState} from "react";
 import {ShoppingItem} from "../model/ShoppingItem";
+import "./NewShoppingItem.css";
 
 type NewShoppingItemProps ={
     addShoppingItems : ( newShoppingItem : ShoppingItem) => void
@@ -22,7 +23,7 @@ export default function NewShoppingItem ({ addShoppingItems }: NewShoppingItemPr
     }
 
     return (
-        <div>
+        <div className={"new-item"}>
             <form onSubmit={onAdd}>
                 <input type={"text"} placeholder="Add a new item" value={name} onChange={event => setName(event.target.value)} />
                 <input type={"submit"} value={"Add item"} />
