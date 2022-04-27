@@ -6,5 +6,5 @@ ADD backend/target/shoppinglist.jar shoppinglist.jar
 
 EXPOSE 8080
 
-CMD [ "sh", "-c", "java -jar /shoppinglist.jar" ]
+CMD [ "sh", "-c", "java -Dserver.port=$PORT -jar /shoppinglist.jar" ]
 
